@@ -1,0 +1,22 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src/dev"
+  "src/main"
+  "src/test"]
+
+ :dependencies
+ []
+
+ :builds
+ {:functions
+  {:target :esm
+   :runtime :node
+   :output-dir "target/functions"
+   :js-options {:keep-as-import 
+                #{"http"
+                  "https"
+                  "util"
+                  "process"}
+                :ignore-asset-requires true}
+   :modules {:index {:exports
+                     {myExport com.avisi.test/my-export}}}}}}
